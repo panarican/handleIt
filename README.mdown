@@ -1,0 +1,46 @@
+# HandleIt jQuery Plugin
+Lightweight Handlebars jQuery plugin. This is my first plugin feel free fork and add improvements or suggestions.
+
+## Requirements
+jQuery 1.5 and up (I'm using $.when method) and of course Handlebars. I included server.js if you want to run the demo in nodejs.
+
+## Examples
+<pre>
+<code>
+$(function(){
+    // Cached Selectors
+    var $list = $('.twitter-list'),
+        $pizza = $('#pizza');
+
+      // Ex. 1 : Calling handleIt on a class with multiple data options
+      // Only data option that won't work is callback you'll have to call it manually 
+      $list.handleIt();
+
+      // Ex. 2 : If you don't want to use data attributes you can set options here
+      $pizza.handleIt({
+        name: "pizza",
+        json: "//search.twitter.com/search.json?callback=?&q=pizza",
+        callback: function (){
+            $pizza.css('background-color', '#'+Math.floor(Math.random()*16777215).toString(16));
+        }
+      });
+});
+</code>
+</pre>
+
+## Properties
+<pre>
+<code>
+var settings = $.extend({
+            "json": null, // Required : Accepts a string (url) or object (JSON data) 
+            "name": null, // Required : Name of template file your loading
+            "path": "/assets/templates/", // Optional : Location of template file
+            "container": "body", // Optional : Location where script tag is getting appendedTo
+            "refresh": null, // Optional : Refreshes data into html (accepts an integer > 500 miliseconds)
+            "callback": function () {} // Optional : Callback function when template finishes rendering html
+        }, options);	
+</code>	
+</pre>
+
+## Release Info
+### 0.9 - First Release

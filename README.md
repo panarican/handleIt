@@ -1,1 +1,0 @@
-Handlebars jquery plugin for loading templates
