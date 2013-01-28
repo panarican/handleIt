@@ -1,5 +1,5 @@
 # HandleIt jQuery Plugin
-Lightweight Handlebars jQuery plugin. This is my first plugin feel free fork and add improvements or suggestions.
+Lightweight Handlebars jQuery plugin. This is my first plugin feel to free fork and add improvements or suggestions.
 
 ## Requirements
 jQuery 1.5 and up (I'm using $.when method) and of course Handlebars. I included server.js if you want to run the demo in nodejs.
