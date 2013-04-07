@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="http://code.jquery.com/jquery.min.js"></script>
-        <script src="https://raw.github.com/wycats/handlebars.js/1.0.rc.2/dist/handlebars.js"></script>
-        <script src="assets/js/jquery.handleIt.js"></script>
+        <title>handleIt jQuery Plugin</title>
     </head>
     <body>
-        <ul id="handle-it"></ul>
+        <h1>Dogs</h1>
+        <ul id="dogs" class="twitter-list" data-refresh="500" data-name="dogs" data-json="//search.twitter.com/search.json?callback=?&q=dogs"></ul>
+        <h1>Cats</h1>
+        <ul id="cats" class="twitter-list" data-name="cats" data-json="//search.twitter.com/search.json?callback=?&q=cats"></ul>
+        <h1>Pigs</h1>
+        <ul id="pigs" class="twitter-list" data-name="pigs" data-json="//search.twitter.com/search.json?callback=?&q=pigs"></ul>
+        <h1>Goats</h1>
+        <ul id="goats" class="twitter-list" data-name="goats" data-json="//search.twitter.com/search.json?callback=?&q=goats"></ul>
+        <h1>Pizza</h1>
+        <ul id="pizza"></ul>
+
+        <!-- Load Scripts -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//raw.github.com/wycats/handlebars.js/1.0.rc.2/dist/handlebars.js"></script>
+        <script src="assets/js/jquery.handleIt.min.js"></script>
+
+        <!-- Plugin Samples -->
+            <script>
+            $(function(){
+                // Cached Selectors
+                var $list = $('.twitter-list'),
+                    $pizza = $('#pizza');
+
+                  // Ex. 1 : Calling handleIt on a class with multiple data options
+                  // Only data option that won't work is callback you'll have to call it manually 
+                  $list.handleIt();
+
+                  // Ex. 2 : If you don't want to use data attributes you can set options here
+                  $pizza.handleIt({
+                    name: "pizza",
+                    json: "//search.twitter.com/search.json?callback=?&q=pizza",
+                    callback: function (){
+                        $pizza.css('background-color', '#'+Math.floor(Math.random()*16777215).toString(16));
+                    }
+                  });
+            });
+        </script>
+        
     </body>
 </html>
